@@ -22,7 +22,6 @@ public class DialogueGraphView : GraphView
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
         this.AddManipulator(new FreehandSelector());
-
         GridBackground grid = new GridBackground();
         Insert(0, grid);
 
