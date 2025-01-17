@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,8 +10,17 @@ public class UIManager : MonoBehaviour
 
     [Header("User Interfaces")]
     public GameObject startMenu;
-    public InputField serverIpField;
+    public GameObject gameMenu;
+
+    public InputField gameAttackChoice;
     public InputField userNameField;
+
+    public Text gameStatus;
+
+    [Header("Server Interfaces")]
+    public Text serverNameText;
+    public Text playersCountText;
+    public Text playerNameText;
 
 
     private void Awake()
@@ -30,7 +40,19 @@ public class UIManager : MonoBehaviour
     {
         startMenu.SetActive(false);
         userNameField.interactable = false;
+        playerNameText.text = userNameField.text;
+
         Client.instance.ConnectToServer();
+    }
+
+    public void PlayRound(int _choice)
+    {
+        Client.instance.PlayGame((PlayChoice)_choice);
+    }
+
+    public void CallRestartGame()
+    {
+        ClientSend.RestartGameOnServer();
     }
 
 }
