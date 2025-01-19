@@ -24,22 +24,24 @@ public class EndNode : BaseNode
         AddInputPort("Input", Port.Capacity.Multi);
 
         // Dropdown menu (EndType)
-        enumField = new EnumField()
-        {
-            value = endNodeType
-        };
-        enumField.Init(EndNodeType);
+        enumField = new EnumField() { value = endNodeType };
+        enumField.Init(endNodeType);
         // When the value from the drodown menu gets changed, save the new value and set it
         enumField.RegisterValueChangedCallback((value) =>
         {
             endNodeType = (EndNodeTypes)value.newValue;
         });
+        enumField.SetValueWithoutNotify(endNodeType);
 
         mainContainer.Add(enumField);
         //Tells the system we changed the node and to update it.
         RefreshExpandedState();
         RefreshPorts();
 
+    }
+    public override void LoadValueIntoField()
+    {
+        enumField.SetValueWithoutNotify(endNodeType);
     }
 }
 

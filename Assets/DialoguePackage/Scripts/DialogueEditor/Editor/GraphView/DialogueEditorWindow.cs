@@ -14,6 +14,9 @@ public class DialogueEditorWindow : EditorWindow
     private DialogueContainerSO currentDialogueContainer;
     private DialogueGraphView graphview;
     private UnityEngine.UIElements.Label nameOfDialoguecontainer;
+
+    public LanguageType LanguageType { get; internal set; }
+
     [OnOpenAsset(1)]
     public static bool ShowWindow(int _instanceId, int line)
     {

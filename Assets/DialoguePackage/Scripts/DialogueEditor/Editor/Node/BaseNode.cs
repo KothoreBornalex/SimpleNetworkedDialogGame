@@ -9,6 +9,7 @@ public class BaseNode : Node
     protected string nodeGuid;
     protected DialogueGraphView dialogueGraphView;
     protected DialogueEditorWindow editorWindow;
+    protected LanguageType languageType = LanguageType.French;
 
     protected Vector2 defaultNodeSize = new Vector2(200, 250);
 
@@ -37,5 +38,10 @@ public class BaseNode : Node
     public Port GetPortInstance(Direction nodedirection, Port.Capacity capacity = Port.Capacity.Single)
     { 
         return InstantiatePort(Orientation.Horizontal, nodedirection, capacity, typeof(float));
+    }
+
+    public virtual void LoadValueIntoField()
+    {
+
     }
 }

@@ -27,4 +27,27 @@ public class DialogueGraphView : GraphView
 
         grid.StretchToParentSize();
     }
+    public StartNode CreateStartNode(Vector2 _pos)
+    {
+        StartNode tmp = new StartNode(_pos, dialogueEditorWindow, this);
+        return tmp;
+    }
+
+    public DialogueNode CreateDialogueNode(Vector2 _pos)
+    {
+        DialogueNode tmp = new DialogueNode(_pos, dialogueEditorWindow, this);
+        return tmp;
+    }
+
+    public EventNode CreateEventNode(Vector2 _pos)
+    {
+        EventNode tmp = new EventNode(_pos, dialogueEditorWindow, this);
+        return tmp;
+    }
+
+    public EndNode CreateEndNode(Vector2 _pos)
+    {
+        EndNode tmp = new EndNode(_pos, dialogueEditorWindow, this);
+        return tmp;
+    }
 }
