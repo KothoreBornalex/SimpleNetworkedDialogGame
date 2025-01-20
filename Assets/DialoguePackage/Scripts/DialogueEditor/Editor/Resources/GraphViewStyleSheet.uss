@@ -12,3 +12,7 @@ GridBackground {
 	padding-right: 5px;
 	padding-right: 5px;
 }
+
+.custom-text-field{
+    width: 150px;    
+}

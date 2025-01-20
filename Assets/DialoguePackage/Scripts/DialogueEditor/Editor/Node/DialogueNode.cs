@@ -12,18 +12,18 @@ using UnityEngine.UIElements;
 public class DialogueNode : BaseNode
 {
     // Parameters
-    private List<LanguageGeneric<string>> text = new List<LanguageGeneric<string>>();
-    private List<LanguageGeneric<AudioClip>> audioClips = new List<LanguageGeneric<AudioClip>>();
-    private string name = "";
+    private string Key;
+    private List<AudioClip> audioClips = new List<AudioClip>();
+    private string nameDialogue = "";
     private Sprite faceImage;
     private DialogueSpriteType facingDirection;
     
 
     private List<DialogueNodePort> dialogueNodePorts = new List<DialogueNodePort>();
     // Get Sets
-    public List<LanguageGeneric<string>> Text { get => text; set => text = value; }
-    public List<LanguageGeneric<AudioClip>> AudioClips { get => audioClips; set => audioClips = value; }
-    public string Name { get => name; set => name = value; }
+    public string Text { get => Key; set => Key = value; }
+    //public List<AudioClip> AudioClips { get => audioClips; set => audioClips = value; }
+    public string Name { get => nameDialogue; set => nameDialogue = value; }
     public Sprite FaceImage { get => faceImage; set => faceImage = value; }
     public DialogueSpriteType FacingDirection { get => facingDirection; set => facingDirection = value; }
     public List<DialogueNodePort> DialogueNodePorts { get => dialogueNodePorts; set => dialogueNodePorts = value; }
@@ -50,12 +50,12 @@ public class DialogueNode : BaseNode
         nodeGuid = Guid.NewGuid().ToString();
 
         AddInputPort("Input", Port.Capacity.Multi);
-        AddOutputPort("Output", Port.Capacity.Single);
+        //AddOutputPort("Output", Port.Capacity.Single);
 
         // get the values that correspond to current language (Change when localisation thingy is done)
-        foreach (LanguageType language in (LanguageType[])Enum.GetValues(typeof(LanguageType)))
+/*        foreach (LanguageType language in (LanguageType[])Enum.GetValues(typeof(LanguageType)))
         {
-            text.Add(new LanguageGeneric<string>
+            Key.Add(new LanguageGeneric<string>
             {
                 languageType = language,
                 LanguageGenericType = "",
@@ -66,7 +66,7 @@ public class DialogueNode : BaseNode
                 languageType = language,
                 LanguageGenericType = null,
             });
-        }
+        }*/
 
         // Face Image Field
         image_Field = new ObjectField
@@ -102,33 +102,17 @@ public class DialogueNode : BaseNode
         label_name.AddToClassList("label");
         mainContainer.Add(label_name);
 
-        name_Field = new TextField("Name");
+        name_Field = new TextField("");
         name_Field.RegisterValueChangedCallback(value =>
         {
-            name = value.newValue;
+            nameDialogue = value.newValue;
         });
-        name_Field.SetValueWithoutNotify(name);
-        text_Field.AddToClassList("TextName");
+        name_Field.SetValueWithoutNotify(nameDialogue);
+        //name_Field.AddToClassList("Text");
         mainContainer.Add(name_Field);
 
-        // Audio Clips Field
-        audioClips_Field = new ObjectField()
-        {
-            objectType = typeof(AudioClip),
-            allowSceneObjects = false,
-            value = audioClips.Find(audioClip => audioClip.languageType == editorWindow.LanguageType).LanguageGenericType,
-
-        };
-        audioClips_Field.RegisterValueChangedCallback(value =>
-        {
-            audioClips.Find(audioClip => audioClip.languageType == editorWindow.LanguageType).LanguageGenericType 
-            = value.newValue as AudioClip;
-        });
-        audioClips_Field.SetValueWithoutNotify(audioClips.Find(audioClip =>  audioClip.languageType == editorWindow.LanguageType).LanguageGenericType);
-        mainContainer.Add(audioClips_Field);
-        // TODO Change allat i'm not using the language type thingy
         // Text Field
-        Label label_text = new Label("Name TextBox");
+        Label label_text = new Label("Key Text");
         label_text.AddToClassList("label_text");
         label_text.AddToClassList("label");
         mainContainer.Add(label_text);
@@ -136,9 +120,11 @@ public class DialogueNode : BaseNode
         text_Field = new TextField("");
         text_Field.RegisterValueChangedCallback(value =>
         {
-            text.Find(text => text.languageType == editorWindow.LanguageType).LanguageGenericType = value.newValue;
+            Key  = value.newValue;
+
         });
-        text_Field.SetValueWithoutNotify(text.Find(_text => _text.languageType == editorWindow.LanguageType).LanguageGenericType);
+        text_Field.AddToClassList("custom-text-field");
+        text_Field.SetValueWithoutNotify(Key);
         text_Field.multiline = true;
         text_Field.AddToClassList("TextBox");
         mainContainer.Add(text_Field);
@@ -158,13 +144,13 @@ public class DialogueNode : BaseNode
     public override void LoadValueIntoField()
     {
         //TODO Update these two when you know where you get the text
-        text_Field.SetValueWithoutNotify("test text");
-        audioClips_Field.SetValueWithoutNotify(null);
+        text_Field.SetValueWithoutNotify(Key);
+        //audioClips_Field.SetValueWithoutNotify(null);
 
 
         image_Field.SetValueWithoutNotify(faceImage);
         facingDirection_field.SetValueWithoutNotify(facingDirection);
-        name_Field.SetValueWithoutNotify(name);
+        name_Field.SetValueWithoutNotify(nameDialogue);
     }
 
     public Port AddChoicePort(BaseNode _basenode, DialogueNodePort _dialogueNodePort = null)
@@ -175,7 +161,7 @@ public class DialogueNode : BaseNode
         string outputPortName = $"Choice {outputPortCount + 1}";
 
         DialogueNodePort dialogueNodePort = new DialogueNodePort();
-
+/*
         foreach (LanguageType language in (LanguageType[])Enum.GetValues(typeof(LanguageType)))
         {
             dialogueNodePort.TextLanguage.Add(new LanguageGeneric<string>()
@@ -183,25 +169,33 @@ public class DialogueNode : BaseNode
                 languageType = language,
                 LanguageGenericType = outputPortName,
             });
-        }
+        }*/
+
         if (_dialogueNodePort != null)
         {
             dialogueNodePort.InputGuid = _dialogueNodePort.InputGuid;
             dialogueNodePort.OutputGuid = _dialogueNodePort.OutputGuid;
 
-            foreach (LanguageGeneric<string> item in _dialogueNodePort.TextLanguage)
+/*            foreach (LanguageGeneric<string> item in _dialogueNodePort.TextLanguage)
             {
                 dialogueNodePort.TextLanguage.Find(language =>
                 language.languageType == item.languageType).LanguageGenericType = item.LanguageGenericType;
-            }
+            }*/
         }
         // Text for the port
         dialogueNodePort.textField = new TextField();
+        dialogueNodePort.textField.AddToClassList("custom-text-field");
+
+        // Register value changed callback
         dialogueNodePort.textField.RegisterValueChangedCallback(value =>
         {
-            dialogueNodePort.TextLanguage.Find(language => language.languageType == editorWindow.LanguageType).LanguageGenericType = value.newValue;
+            dialogueNodePort.Key = value.newValue; // Assuming TextValue stores the text for this port
         });
-        dialogueNodePort.textField.SetValueWithoutNotify(dialogueNodePort.TextLanguage.Find(language => language.languageType == editorWindow.LanguageType).LanguageGenericType);
+
+        // Set the initial value
+        dialogueNodePort.textField.SetValueWithoutNotify(dialogueNodePort.Key);
+
+        // Add the text field to the port
         port.contentContainer.Add(dialogueNodePort.textField);
 
         // Delete button
@@ -245,3 +239,35 @@ public class DialogueNode : BaseNode
     }
 }
 
+
+/*        // Audio Clips Field
+        audioClips_Field = new ObjectField()
+        {
+            objectType = typeof(AudioClip),
+            allowSceneObjects = false,
+            value = audioClips.Find(audioClip => audioClip.languageType == editorWindow.LanguageType).LanguageGenericType,
+
+        };
+        audioClips_Field.RegisterValueChangedCallback(value =>
+        {
+            audioClips.Find(audioClip => audioClip) = value.newValue as AudioClip;
+        });
+        audioClips_Field.SetValueWithoutNotify(audioClips.Find(audioClip =>  audioClip.languageType == editorWindow.LanguageType).LanguageGenericType);
+        mainContainer.Add(audioClips_Field);
+
+        // Audio Clips Field
+        audioClips_Field = new ObjectField()
+        {
+            objectType = typeof(AudioClip), // Specifies the field accepts AudioClip objects
+            allowSceneObjects = false,     // Ensures only project assets, not scene objects, can be assigned
+        };
+
+        // Register callback to handle value changes
+        audioClips_Field.RegisterValueChangedCallback(evt =>
+        {
+            // Store the selected AudioClip
+            audioClips.Find() = evt.newValue as AudioClip;
+        });
+
+        // Add the ObjectField to the main container
+        mainContainer.Add(audioClips_Field);*/

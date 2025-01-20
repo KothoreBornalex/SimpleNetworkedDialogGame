@@ -9,7 +9,7 @@ public class DialogueGraphView : GraphView
 {
     private string styleSheetsName = "GraphViewStyleSheet";
     private DialogueEditorWindow dialogueEditorWindow;
-
+    private NodeSearchWindow searchWindow;
     public DialogueGraphView(DialogueEditorWindow _editorWindow) 
     {
         dialogueEditorWindow = _editorWindow;
@@ -26,6 +26,8 @@ public class DialogueGraphView : GraphView
         Insert(0, grid);
 
         grid.StretchToParentSize();
+
+        AddSearchWindow();
     }
     public StartNode CreateStartNode(Vector2 _pos)
     {
@@ -49,5 +51,30 @@ public class DialogueGraphView : GraphView
     {
         EndNode tmp = new EndNode(_pos, dialogueEditorWindow, this);
         return tmp;
+    }
+
+    private void AddSearchWindow()
+    {
+        searchWindow = ScriptableObject.CreateInstance<NodeSearchWindow>();
+        searchWindow.Configure(dialogueEditorWindow, this);
+        nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
+    }
+
+    public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+    {
+        List<Port> compatiblePorts = new List<Port>();
+        Port startPortView = startPort;
+
+        ports.ForEach((port) =>
+        {
+            // We make a port
+            Port portView = port;
+            // check that: we're not connecting to ourselves, nor to any ports on our node and finally not to a port that is the same direction as us (left cannot connect to left)
+            if(startPortView != portView && startPortView.node != portView.node && startPortView.direction != port.direction)
+            {
+                compatiblePorts.Add(port);
+            }
+        });
+        return compatiblePorts;
     }
 }

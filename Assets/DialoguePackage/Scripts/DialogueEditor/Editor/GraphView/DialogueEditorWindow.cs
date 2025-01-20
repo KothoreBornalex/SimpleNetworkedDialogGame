@@ -13,6 +13,7 @@ public class DialogueEditorWindow : EditorWindow
 {
     private DialogueContainerSO currentDialogueContainer;
     private DialogueGraphView graphview;
+    private DialogueSaveAndLoad saveAndLoad;
     private UnityEngine.UIElements.Label nameOfDialoguecontainer;
 
     public LanguageType LanguageType { get; internal set; }
@@ -48,6 +49,7 @@ public class DialogueEditorWindow : EditorWindow
         graphview = new DialogueGraphView(this);
         graphview.StretchToParentSize();
         rootVisualElement.Add(graphview);
+        saveAndLoad = new DialogueSaveAndLoad(graphview);
     }
                                             
     private void GenerateToolBar()          
@@ -90,15 +92,17 @@ public class DialogueEditorWindow : EditorWindow
 
     private void Save()
     {
-        Debug.Log("Save");
+        if(currentDialogueContainer != null)
+        {
+            saveAndLoad.Save(currentDialogueContainer);
+        }
     }
     private void Load()
     {
-        Debug.Log("Load");
-
         if (currentDialogueContainer != null)
         {
             nameOfDialoguecontainer.text = "Name:   " + currentDialogueContainer.name;
+            saveAndLoad.Load(currentDialogueContainer);
         }
 
     }
