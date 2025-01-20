@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 40612897}
   - component: {fileID: 40612896}
   m_Layer: 0
-  m_Name: DialoguePanel
+  m_Name: Complete Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,9 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737ed2d0c2ba97f44872e8ab880a8a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechBubble: {fileID: 0}
   talkKey: 101
-  keyInputText: {fileID: 0}
 --- !u!114 &76802183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +274,7 @@ GameObject:
   - component: {fileID: 146208138}
   - component: {fileID: 146208137}
   m_Layer: 0
-  m_Name: Name Panel
+  m_Name: Dialogue Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,6 +772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (Legacy) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4560384198312209291, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
+      propertyPath: m_Name
+      value: Text (Legacy) Button3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -818,7 +820,7 @@ GameObject:
   - component: {fileID: 735805219}
   - component: {fileID: 735805218}
   m_Layer: 0
-  m_Name: Text (Legacy)
+  m_Name: Text Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,6 +978,10 @@ PrefabInstance:
     - target: {fileID: 4020824910630467204, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
       propertyPath: m_Name
       value: Button (Legacy) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560384198312209291, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
+      propertyPath: m_Name
+      value: Text (Legacy) Button4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1169,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (Legacy) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4560384198312209291, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
+      propertyPath: m_Name
+      value: Text (Legacy) Button2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1317,7 +1327,7 @@ GameObject:
   - component: {fileID: 1285137990}
   - component: {fileID: 1285137989}
   m_Layer: 0
-  m_Name: Text (Legacy)
+  m_Name: Text Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1432,8 +1442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 40612894}
-  textName: {fileID: 735805218}
-  textBox: {fileID: 1285137989}
+  textName: {fileID: 1285137989}
+  textBox: {fileID: 735805218}
   LeftImage: {fileID: 1598883647}
   LeftImageGO: {fileID: 1806541506}
   RightImage: {fileID: 1363386824}
@@ -1963,6 +1973,10 @@ PrefabInstance:
     - target: {fileID: 4020824910630467204, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
       propertyPath: m_Name
       value: Button (Legacy)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560384198312209291, guid: cbf67866f56fab14e909c21adf9fbb72, type: 3}
+      propertyPath: m_Name
+      value: Text (Legacy) Button1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

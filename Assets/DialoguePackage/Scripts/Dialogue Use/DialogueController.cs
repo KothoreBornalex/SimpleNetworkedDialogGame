@@ -84,6 +84,7 @@ public class DialogueController : MonoBehaviour
 
         for (int i = 0; i < _texts.Count; i++)
         {
+            Debug.Log("text button number " + i + ": " + _texts[i]);
             buttonTexts[i].text = _texts[i];
             buttons[i].gameObject.SetActive(true);
             // resets the listeners

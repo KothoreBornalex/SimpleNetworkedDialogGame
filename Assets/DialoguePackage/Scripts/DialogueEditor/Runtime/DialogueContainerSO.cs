@@ -55,8 +55,6 @@ public class DialogueNodeData : BaseNodeData
     // public AudioClip audioclips; Implementing this later for now i want my code to work
     public string name;
     public string key;
-    //public List<LanguageGeneric<string>> textType;
-
 }
 
 [System.Serializable]
@@ -89,6 +87,32 @@ public class DialogueNodePort
     public string InputGuid;
     public string OutputGuid;
     public Port MyPort;
+    public PortParameters MyPortParams;
     public TextField textField;
     public string Key;
+
+    public int ID_Port;
+}
+
+public class PortParameters
+{
+    public PortDirection portDirection;
+    public PortOrientation portOrientation;
+    public PortCapacity portCapacity;
+};
+
+public enum PortDirection
+{
+    Left,
+    Right,
+}
+public enum PortOrientation
+{
+    Vertical,
+    Horizontal,
+}
+public enum PortCapacity
+{
+    Single,
+    Multi,
 }

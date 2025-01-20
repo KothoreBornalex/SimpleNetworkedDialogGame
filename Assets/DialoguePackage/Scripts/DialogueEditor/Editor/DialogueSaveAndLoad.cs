@@ -97,7 +97,7 @@ public class DialogueSaveAndLoad
             //Audioclips = _node.AudioClips,
             dialoguefaceimagetype = _Node.FacingDirection,
             sprite = _Node.FaceImage,
-            dialogueNodePorts = _Node.DialogueNodePorts,
+            dialogueNodePorts = new List<DialogueNodePort>(_Node.DialogueNodePorts),
         };
 
         // going through each of the dialogue choice ports

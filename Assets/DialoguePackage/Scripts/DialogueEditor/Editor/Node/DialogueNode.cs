@@ -15,9 +15,11 @@ public class DialogueNode : BaseNode
     private string Key;
     private List<AudioClip> audioClips = new List<AudioClip>();
     private string nameDialogue = "";
+    private string tmpString = "";
     private Sprite faceImage;
     private DialogueSpriteType facingDirection;
-    
+
+    public (Port, int) MyPorts;
 
     private List<DialogueNodePort> dialogueNodePorts = new List<DialogueNodePort>();
     // Get Sets
@@ -161,27 +163,14 @@ public class DialogueNode : BaseNode
         string outputPortName = $"Choice {outputPortCount + 1}";
 
         DialogueNodePort dialogueNodePort = new DialogueNodePort();
-/*
-        foreach (LanguageType language in (LanguageType[])Enum.GetValues(typeof(LanguageType)))
-        {
-            dialogueNodePort.TextLanguage.Add(new LanguageGeneric<string>()
-            {
-                languageType = language,
-                LanguageGenericType = outputPortName,
-            });
-        }*/
 
         if (_dialogueNodePort != null)
         {
             dialogueNodePort.InputGuid = _dialogueNodePort.InputGuid;
             dialogueNodePort.OutputGuid = _dialogueNodePort.OutputGuid;
-
-/*            foreach (LanguageGeneric<string> item in _dialogueNodePort.TextLanguage)
-            {
-                dialogueNodePort.TextLanguage.Find(language =>
-                language.languageType == item.languageType).LanguageGenericType = item.LanguageGenericType;
-            }*/
+            dialogueNodePort.Key = _dialogueNodePort.Key;
         }
+
         // Text for the port
         dialogueNodePort.textField = new TextField();
         dialogueNodePort.textField.AddToClassList("custom-text-field");
@@ -189,11 +178,13 @@ public class DialogueNode : BaseNode
         // Register value changed callback
         dialogueNodePort.textField.RegisterValueChangedCallback(value =>
         {
-            dialogueNodePort.Key = value.newValue; // Assuming TextValue stores the text for this port
+            tmpString = value.newValue; // Assuming TextValue stores the text for this port
+            dialogueNodePort.Key = value.newValue;
         });
-
         // Set the initial value
-        dialogueNodePort.textField.SetValueWithoutNotify(dialogueNodePort.Key);
+        //dialogueNodePort.textField.SetValueWithoutNotify(tmpString);
+        //                                                  CONDITION                   IF TRUE             IF FALSE
+        dialogueNodePort.textField.SetValueWithoutNotify(_dialogueNodePort != null ? _dialogueNodePort.Key:tmpString);
 
         // Add the text field to the port
         port.contentContainer.Add(dialogueNodePort.textField);

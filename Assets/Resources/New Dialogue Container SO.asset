@@ -14,43 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeLinkDatas:
   - baseNodeGuid: a6f6655e-931e-4dd2-9224-c6001c697668
-    targetNodeGuid: 5f141b02-6762-4ec0-aa65-f0eabec90748
-  - baseNodeGuid: 5f141b02-6762-4ec0-aa65-f0eabec90748
+    targetNodeGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
+  - baseNodeGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
     targetNodeGuid: 0b498b0e-f0da-4641-9633-be6f96057728
-  - baseNodeGuid: 5f141b02-6762-4ec0-aa65-f0eabec90748
-    targetNodeGuid: 3ad7bff2-d6e1-4933-bdd3-23157d721778
-  - baseNodeGuid: 3ad7bff2-d6e1-4933-bdd3-23157d721778
+  - baseNodeGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
     targetNodeGuid: 002bf809-5b69-4738-a383-80cc6b78c22b
   dialogueNodeDatas:
-  - nodeguid: 5f141b02-6762-4ec0-aa65-f0eabec90748
-    position: {x: 84, y: 213}
+  - nodeguid: 15af31be-07a4-46b2-9775-693280f9b7d7
+    position: {x: 76, y: 37}
     dialogueNodePorts:
     - InputGuid: 0b498b0e-f0da-4641-9633-be6f96057728
-      OutputGuid: 5f141b02-6762-4ec0-aa65-f0eabec90748
-      Key: 
-    - InputGuid: 3ad7bff2-d6e1-4933-bdd3-23157d721778
-      OutputGuid: 5f141b02-6762-4ec0-aa65-f0eabec90748
-      Key: 
-    sprite: {fileID: 21300000, guid: a87ba417c3dde1346b95b4209eddfc4b, type: 3}
-    dialoguefaceimagetype: 0
-    name: Do you love me ?
-    key: test
-  - nodeguid: 3ad7bff2-d6e1-4933-bdd3-23157d721778
-    position: {x: 479, y: 343}
-    dialogueNodePorts:
+      OutputGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
+      Key: A
     - InputGuid: 002bf809-5b69-4738-a383-80cc6b78c22b
-      OutputGuid: 3ad7bff2-d6e1-4933-bdd3-23157d721778
-      Key: 
+      OutputGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
+      Key: B
     sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
     dialoguefaceimagetype: 0
-    name: Sadge
-    key: test2
+    name: bombocalt
+    key: qsjbh
   endNodeDatas:
   - nodeguid: 0b498b0e-f0da-4641-9633-be6f96057728
-    position: {x: 797, y: 116}
+    position: {x: 648, y: -150}
     endNodeTypes: 0
   - nodeguid: 002bf809-5b69-4738-a383-80cc6b78c22b
-    position: {x: 794, y: 382}
+    position: {x: 648, y: 213}
     endNodeTypes: 3
   startNodeDatas:
   - nodeguid: a6f6655e-931e-4dd2-9224-c6001c697668
