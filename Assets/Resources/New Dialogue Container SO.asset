@@ -18,18 +18,46 @@ MonoBehaviour:
   - baseNodeGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
     targetNodeGuid: 0b498b0e-f0da-4641-9633-be6f96057728
   - baseNodeGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
+    targetNodeGuid: 0a35e354-651e-42b8-8830-1f333b51f078
+  - baseNodeGuid: 0a35e354-651e-42b8-8830-1f333b51f078
+    targetNodeGuid: 09be9cce-06db-4c6b-a627-a6f2c1fc48df
+  - baseNodeGuid: 09be9cce-06db-4c6b-a627-a6f2c1fc48df
     targetNodeGuid: 002bf809-5b69-4738-a383-80cc6b78c22b
   dialogueNodeDatas:
+  - nodeguid: 0a35e354-651e-42b8-8830-1f333b51f078
+    position: {x: 469, y: 232}
+    dialogueNodePorts:
+    - InputGuid: 09be9cce-06db-4c6b-a627-a6f2c1fc48df
+      OutputGuid: 0a35e354-651e-42b8-8830-1f333b51f078
+      Key: next
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
+    dialoguefaceimagetype: 0
+    name: Volodia
+    key: Wait !
+  - nodeguid: 09be9cce-06db-4c6b-a627-a6f2c1fc48df
+    position: {x: 864, y: 232}
+    dialogueNodePorts:
+    - InputGuid: 002bf809-5b69-4738-a383-80cc6b78c22b
+      OutputGuid: 09be9cce-06db-4c6b-a627-a6f2c1fc48df
+      Key: next
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
+    dialoguefaceimagetype: 0
+    name: Volodia
+    key: They don't love you like i love you
   - nodeguid: 15af31be-07a4-46b2-9775-693280f9b7d7
     position: {x: 76, y: 37}
     dialogueNodePorts:
     - InputGuid: 0b498b0e-f0da-4641-9633-be6f96057728
       OutputGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
       Key: A
-    - InputGuid: 002bf809-5b69-4738-a383-80cc6b78c22b
+      ID_Port: 0
+    - InputGuid: 0a35e354-651e-42b8-8830-1f333b51f078
       OutputGuid: 15af31be-07a4-46b2-9775-693280f9b7d7
       Key: B
-    sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: a87ba417c3dde1346b95b4209eddfc4b, type: 3}
     dialoguefaceimagetype: 0
     name: bombocalt
     key: qsjbh
@@ -38,7 +66,7 @@ MonoBehaviour:
     position: {x: 648, y: -150}
     endNodeTypes: 0
   - nodeguid: 002bf809-5b69-4738-a383-80cc6b78c22b
-    position: {x: 648, y: 213}
+    position: {x: 1173, y: 232}
     endNodeTypes: 3
   startNodeDatas:
   - nodeguid: a6f6655e-931e-4dd2-9224-c6001c697668
