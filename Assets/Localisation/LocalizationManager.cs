@@ -26,8 +26,9 @@ namespace LocalizationPackage
         [SerializeField] private startBehavior startRoutine;
         [SerializeField] private LocalizationComponent LanguageSelection;
 
-        [Header("Other Parameters")]
+        [Header("Debug Parameters")]
         [SerializeField] bool refreshLogs = true;
+        [SerializeField] bool returnDefaultLanguageIfPossible = false;
 
         public delegate void OnRefreshDelegate(SystemLanguage language);
         public static event OnRefreshDelegate OnRefresh;
@@ -38,6 +39,7 @@ namespace LocalizationPackage
         public string GetCurrentLanguage { get => currentLanguage.ToString(); }
         public string GetDefaultLanguage { get => defaultLanguage.ToString(); }
         public startBehavior SetStartRoutine { set => startRoutine = value; }
+        public bool DebugGetReturnDefault { get => returnDefaultLanguageIfPossible; }
 
         private void OnValidate()
         {
@@ -59,10 +61,14 @@ namespace LocalizationPackage
             DontDestroyOnLoad(gameObject);
 
             LocalizationManager.OnRefresh += RefreshCalled;
+
+            SceneManager.sceneLoaded += ReStart;
         }
         private void OnDisable()
         {
             LocalizationManager.OnRefresh -= RefreshCalled;
+
+            SceneManager.sceneLoaded -= ReStart;
         }
 
         private void Awake()
@@ -76,7 +82,10 @@ namespace LocalizationPackage
             {
                 Debug.LogError("Too many Localization manager instance ", gameObject);
             }
+        }
 
+        private void CheckLanguageRoutine()
+        {
             switch (startRoutine)
             {
                 case startBehavior.UserPC:
@@ -95,11 +104,28 @@ namespace LocalizationPackage
 
                 case startBehavior.HandChoosen:
                 default:
+                    if (!languages.Contains<SystemLanguage>(currentLanguage))
+                    {
+                        Debug.LogWarning("'" + currentLanguage + "' as choosen language is not supported, language set to default ", gameObject);
+                        currentLanguage = defaultLanguage;
+                        break;
+                    }
                     break;
             }
         }
+        public void ChangeLanguageRoutine(startBehavior routine, bool callRefresh = true)
+        {
+            startRoutine = routine;
+            CheckLanguageRoutine();
+            if (callRefresh) CallRefresh();
+        }
 
         private void Start()
+        {
+            AllComponents = FindObjectsOfType<LocalizationComponent>();
+            StartCoroutine(WaitForInit());
+        }
+        private void ReStart(Scene scene, LoadSceneMode mode)
         {
             AllComponents = FindObjectsOfType<LocalizationComponent>();
             StartCoroutine(WaitForInit());
@@ -119,6 +145,7 @@ namespace LocalizationPackage
                 yield return new WaitForEndOfFrame();
             }
 
+            CheckLanguageRoutine();
             CallRefresh();
             yield return null;
         }

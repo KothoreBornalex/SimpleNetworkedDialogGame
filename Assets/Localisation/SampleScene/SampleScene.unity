@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a8519b0ddb6154a83637d11e27a627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Assets/Localisation/SampleScene/SampleTextCheckBox.tsv
+  TSVFile: {fileID: -6929369251454473874, guid: a7d7d63883c9fd441aaf25420a51c765, type: 3}
 --- !u!114 &1185454568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1456b50cc33898844a927cd3191a8cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localizationComponent: {fileID: 1185454567}
+  GUITSVFile: {fileID: 0}
+  localizationComponent: {fileID: 1692444227}
   Button1: {fileID: 1441289968}
   Button1Text: {fileID: 1641748314}
   Button2: {fileID: 1716654518}
@@ -1774,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a8519b0ddb6154a83637d11e27a627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Assets/Localisation/SampleScene/SampleTextMain.tsv
+  TSVFile: {fileID: -5804233779199365086, guid: 46c0a43200e3951469adf3c299ea3db6, type: 3}
 --- !u!114 &1692444228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2042,14 +2043,6 @@ PrefabInstance:
     - target: {fileID: 5403661684928080420, guid: 995399d717c1ea24f9a5053fd212652a, type: 3}
       propertyPath: m_Name
       value: LocalizationManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749366838883944250, guid: 995399d717c1ea24f9a5053fd212652a, type: 3}
-      propertyPath: startRoutine
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749366838883944250, guid: 995399d717c1ea24f9a5053fd212652a, type: 3}
-      propertyPath: currentLanguage
-      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,8 +10,7 @@ This package is designed to help you integrate and modify localized text in a Un
 
 [Localization Manager]
 Place the “LocalizationManager.prefab” prefab on your startup scene, it will transfer itself between the scenes
-And specify the “LanguageSelection.tsv” file path in the “File Path” parameter of the “LocalizationComponent.cs” script.
-(on Unity's interface, right-click + copy path)
+And specify the “LanguageSelection.tsv” file in the “TSV File” parameter of the “LocalizationComponent.cs” script.
 
 Parameters:
 languages -> list of languages you want to be supported by your game
@@ -23,10 +22,10 @@ startRoutine -> while defin how the language is choosen at the start of the game
 [Localization Component]
 
 Set the “LocalizationComponent.cs” component to the supposed gameObject containing the dialogs,
-Then specify in the parameter the path to the .tsv file containing the dialogs.
+Then specify in the parameter the .tsv file containing the dialogs.
 
 Parameters:
-filePath -> string of the File Path of the .tsv file you want the component to be linked to
+filePath -> The .tsv file containing the dialogs you want the component to be linked to
 
 ========================
 [File .TSV]

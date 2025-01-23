@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LocalizationSampleButtons : MonoBehaviour
 {
+    [SerializeField] TextAsset GUITSVFile;
+
     [SerializeField] LocalizationComponent localizationComponent;
     [Space(20)]
     [SerializeField] Button Button1;
@@ -17,6 +19,7 @@ public class LocalizationSampleButtons : MonoBehaviour
     [SerializeField] Toggle CheckBox;
     [SerializeField] TextMeshProUGUI CheckBoxText;
 
+    Text test;
     private void OnEnable()
     {
         LocalizationManager.OnRefresh += RefreshTexts;
@@ -30,7 +33,7 @@ public class LocalizationSampleButtons : MonoBehaviour
     {
         Button1Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.English, CheckBox.isOn);
         Button2Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.French, CheckBox.isOn);
-        Button3Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.Chinese, CheckBox.isOn);
+        Button3Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.Spanish, CheckBox.isOn);
 
         CheckBoxText.text = localizationComponent.GetText("CheckBox");
     }
