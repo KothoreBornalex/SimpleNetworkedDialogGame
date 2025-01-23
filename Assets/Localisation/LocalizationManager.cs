@@ -145,7 +145,7 @@ namespace LocalizationPackage
             return true;
         }
 
-        public string GetLanguageForSelection(SystemLanguage languageToGet, bool sameAsSelectedLanguage /**Returns the text is the same language as the one selected */)
+        public string GetLanguageForSelection(SystemLanguage languageToGet, bool sameAsSelectedLanguage = false /**Return text is the same language as the one selected */)
         {
             if (!languages.Contains(languageToGet))
             {
