@@ -113,6 +113,12 @@ namespace LocalizationPackage
                     break;
             }
         }
+
+        /// <summary>
+        /// Change the start routine of the localization manager.
+        /// </summary>
+        /// <param name="routine">[Default = default language | UserPC = user's PC language or default if not supported | Hand Choosen = manually choosen or default if not supported]</param>
+        /// <param name="callRefresh">Call refresh after changing start routine, true by default.</param>
         public void ChangeLanguageRoutine(startBehavior routine, bool callRefresh = true)
         {
             startRoutine = routine;
@@ -150,6 +156,12 @@ namespace LocalizationPackage
             yield return null;
         }
 
+        /// <summary>
+        /// Give a text depending on the TSV file asked for, the key provided in parameter, and the current game language. TSV File must be in a LocalizationComponent present on the current scene.
+        /// </summary>
+        /// <param name="TSVFileName">Name of the TSV File wanted as a string. Name must not include the file extension.</param>
+        /// <param name="Key">Given identification key corresponding to a text in the TSV file.</param>
+        /// <returns>Text in current game language.</returns>
         public string UniGetText(string TSVFileName, string Key)
         {
             foreach(LocalizationComponent comp in AllComponents)
@@ -164,6 +176,9 @@ namespace LocalizationPackage
             return "ERROR CAN'T FIND TSV: '" + TSVFileName + "' ";
         }
 
+        /// <summary>
+        /// Call the "Onrefresh" event.
+        /// </summary>
         public void CallRefresh()
         {
             OnRefresh.Invoke(currentLanguage);
@@ -172,6 +187,12 @@ namespace LocalizationPackage
         {
             if (refreshLogs) Debug.Log("Refesh Localization : " + language);
         }
+
+        /// <summary>
+        ///  Change the language to the given parameter.
+        /// </summary>
+        /// <param name="newLanguage">New language desired.</param>
+        /// <returns>[True : if language was changed | False : language is not supported & wasn't changed] </returns>
         public bool ChangeLanguage(SystemLanguage newLanguage)
         {
             if (!languages.Contains(newLanguage))
@@ -186,6 +207,12 @@ namespace LocalizationPackage
             return true;
         }
 
+        /// <summary>
+        /// Return the name of the asked language, usefull for language selection in game options.
+        /// </summary>
+        /// <param name="languageToGet">Language Desired.</param>
+        /// <param name="sameAsSelectedLanguage">[False : returns the language name in current game language (Default) | True : returns name of language in native]</param>
+        /// <returns>Name of desired language.</returns>
         public string GetLanguageForSelection(SystemLanguage languageToGet, bool sameAsSelectedLanguage = false /**Return text is the same language as the one selected */)
         {
             if (!languages.Contains(languageToGet))

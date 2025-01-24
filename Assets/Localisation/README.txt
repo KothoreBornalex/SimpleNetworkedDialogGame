@@ -86,6 +86,11 @@ note that it will display them all at the same time
 
 =====================
 [LocalizationManager]
+"UniGetText(string TSVFileName, string Key)" method
+-> Give a text depending on the TSV file asked for, the key provided in parameter, and the current game language.
+   TSV File must be in a LocalizationComponent present on the current scene.
+-> Name of the TSV File must not include the file extension.
+
 "OnRefresh" event
 -> Called everytime the text needs to be refreshed (for changing the language or anything else)
 -> Returns the current language is was refreshed with

@@ -56,7 +56,7 @@ public class LocalizationComponent : MonoBehaviour
         endInit = true;
     }
 
-    void ReadTSVFile()
+    private void ReadTSVFile()
     {
         if (TSVFile == null) // Is filePath empty
         {
@@ -131,6 +131,12 @@ public class LocalizationComponent : MonoBehaviour
         return -1;
     }
 
+    /// <summary>
+    /// Give a text depending on the TSV file present in the class, the key provided in parameter, and the current game language defined in the LocalizationManager.
+    /// </summary>
+    /// <param name="Key">Given identification key corresponding to a text in the TSV file.</param>
+    /// <param name="keyIsLanguage">Intended for LocalizationManager use only, keep at "false" by default to avoid unexpected errors.</param>
+    /// <returns>Text in current game language.</returns>
     public string GetText(string Key, bool keyIsLanguage = false)
     {
         if (cantBeUse) return ErrorCall();
