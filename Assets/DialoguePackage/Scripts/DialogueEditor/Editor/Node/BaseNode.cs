@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -38,6 +39,20 @@ public class BaseNode : Node
     public Port GetPortInstance(Direction nodedirection, Port.Capacity capacity = Port.Capacity.Single)
     { 
         return InstantiatePort(Orientation.Horizontal, nodedirection, capacity, typeof(float));
+    }
+
+    protected void AddField<T, Y>(ref T _HolderField, ref Y _HolderValue, Action<Y> _UpdateValue) where T : BaseField<Y>, new()
+    {
+        _HolderField = new T { value = _HolderValue };
+        // When the value from the drodown menu gets changed, save the new value and set it
+        _HolderField.RegisterValueChangedCallback((value) =>
+        {
+            //_HolderValue = (Y)value.newValue;
+            _UpdateValue(value.newValue);
+        });
+        _HolderField.SetValueWithoutNotify(_HolderValue);
+
+        mainContainer.Add(_HolderField);
     }
 
     public virtual void LoadValueIntoField()

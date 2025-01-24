@@ -127,6 +127,8 @@ public class DialogueSaveAndLoad
         StartNodeData nodeData = new StartNodeData()
         {
             nodeguid = _node.NodeGuid,
+            node_id = _node.IdStartNode,
+            mainStartNode = _node.IsMain,
             position = _node.GetPosition().position,
         };
         return nodeData;
@@ -177,6 +179,8 @@ public class DialogueSaveAndLoad
         {
             StartNode tempNode = graphView.CreateStartNode(node.position);
             tempNode.NodeGuid = node.nodeguid;
+            tempNode.IsMain = node.mainStartNode;
+            tempNode.IdStartNode = node.node_id;
             //Update visuals with loaded values
             tempNode.LoadValueIntoField();
             graphView.AddElement(tempNode);

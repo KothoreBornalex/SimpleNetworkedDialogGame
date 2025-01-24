@@ -66,6 +66,8 @@ public class EndNodeData : BaseNodeData
 [System.Serializable]
 public class StartNodeData :BaseNodeData
 {
+    public string node_id;
+    public bool mainStartNode;
 }
 
 [System.Serializable]
@@ -75,12 +77,7 @@ public class EventNodeData : BaseNodeData
 }
 
 #endregion data
-[System.Serializable]
-public class LanguageGeneric<T>
-{
-    public LanguageType languageType;
-    public T LanguageGenericType;
-}
+
 [System.Serializable]
 public class DialogueNodePort
 {
