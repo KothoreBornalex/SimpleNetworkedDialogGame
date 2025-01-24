@@ -26,21 +26,4 @@ public class DialogueTalkZone : MonoBehaviour
             DialogueTalk.StartDialogue();
         }
     }
-
-    // Not used here
-/*    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            speechBubble.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            speechBubble.SetActive(false);
-        }
-    }*/
 }
