@@ -4,8 +4,6 @@ using LocalizationPackage;
 using UnityEditor;
 using TMPro;
 using UnityEngine.UI;
-using System.Linq;
-using System;
 
 public class LocalizationComponent : MonoBehaviour
 {
@@ -61,7 +59,6 @@ public class LocalizationComponent : MonoBehaviour
             Debug.LogWarning("No referenced file in '" + gameObject.name + "', check if the file is correctly set. ", gameObject);
             return;
         }
-
 
         string[] lines = TSVFile.text.Split('\n');
         if (lines == null) // Is file empty

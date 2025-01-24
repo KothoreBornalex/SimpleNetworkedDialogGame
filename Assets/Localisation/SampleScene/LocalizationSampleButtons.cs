@@ -5,19 +5,11 @@ using UnityEngine.UI;
 
 public class LocalizationSampleButtons : MonoBehaviour
 {
-    [SerializeField] TextAsset GUITSVFile;
-
-    [SerializeField] LocalizationComponent localizationComponent;
-    [Space(20)]
-    [SerializeField] Button Button1;
     [SerializeField] TextMeshProUGUI Button1Text;
-    [SerializeField] Button Button2;
     [SerializeField] TextMeshProUGUI Button2Text;
-    [SerializeField] Button Button3;
     [SerializeField] TextMeshProUGUI Button3Text;
     [Space(10)]
     [SerializeField] Toggle CheckBox;
-    [SerializeField] TextMeshProUGUI CheckBoxText;
 
     Text test;
     private void OnEnable()

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languages: 0a0000000e00000022000000
   defaultLanguage: 10
-  currentLanguage: 23
+  currentLanguage: 10
   startRoutine: 1
   LanguageSelection: {fileID: 2682695221668001164}
   refreshLogs: 1
@@ -68,4 +68,4 @@ MonoBehaviour:
   TMPList: []
   TextList: []
   TextMeshList: []
-  ParaTextsKeys: []
+  TextsKeys: []
