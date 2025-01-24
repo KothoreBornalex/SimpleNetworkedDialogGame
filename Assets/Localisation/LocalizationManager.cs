@@ -150,6 +150,20 @@ namespace LocalizationPackage
             yield return null;
         }
 
+        public string UniGetText(string TSVFileName, string Key)
+        {
+            foreach(LocalizationComponent comp in AllComponents)
+            {
+                if (comp.GetTSVFileName == TSVFileName)
+                {
+                    return comp.GetText(Key);
+                }
+            }
+
+            Debug.LogError("No TSV File named '" + TSVFileName + "'was find in '" + gameObject.name + "' ", gameObject);
+            return "ERROR CAN'T FIND TSV: '" + TSVFileName + "' ";
+        }
+
         public void CallRefresh()
         {
             OnRefresh.Invoke(currentLanguage);

@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LocalizationPackage;
-using UnityEditor;
 using TMPro;
 using UnityEngine.UI;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LocalizationComponent : MonoBehaviour
 {
@@ -23,6 +26,7 @@ public class LocalizationComponent : MonoBehaviour
 
     public bool GetEndInit { get => endInit; }
     public int GetNbTextAssets { get => TMPList.Count + TextList.Count + TextMeshList.Count; }
+    public string GetTSVFileName { get => TSVFile.name; }
 
     /////////////
     // METHODS //
@@ -386,6 +390,8 @@ public class LocalizationComponent : MonoBehaviour
     /////////////////////
     /// CUSTOM EDITOR ///
     /////////////////////
+
+#if UNITY_EDITOR
     [CustomEditor(typeof(LocalizationComponent))]
     public class LocalizationEditor : Editor
     {
@@ -704,4 +710,5 @@ public class LocalizationComponent : MonoBehaviour
             EditorGUILayout.EndVertical();
         }
     }
+#endif
 }
