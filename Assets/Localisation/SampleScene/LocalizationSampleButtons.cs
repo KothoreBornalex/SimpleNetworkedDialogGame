@@ -34,8 +34,6 @@ public class LocalizationSampleButtons : MonoBehaviour
         Button1Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.English, CheckBox.isOn);
         Button2Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.French, CheckBox.isOn);
         Button3Text.text = LocalizationManager.Instance.GetLanguageForSelection(SystemLanguage.Spanish, CheckBox.isOn);
-
-        CheckBoxText.text = localizationComponent.GetText("CheckBox");
     }
 
     public void CheckBoxUpdate()

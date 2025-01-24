@@ -122,12 +122,12 @@ namespace LocalizationPackage
 
         private void Start()
         {
-            AllComponents = FindObjectsOfType<LocalizationComponent>();
+            AllComponents = FindObjectsOfType<LocalizationComponent>(true);
             StartCoroutine(WaitForInit());
         }
         private void ReStart(Scene scene, LoadSceneMode mode)
         {
-            AllComponents = FindObjectsOfType<LocalizationComponent>();
+            AllComponents = FindObjectsOfType<LocalizationComponent>(true);
             StartCoroutine(WaitForInit());
         }
 

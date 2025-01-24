@@ -20,7 +20,6 @@ public class LocalizationSampleMainText : MonoBehaviour
 
     private void RefreshTexts(SystemLanguage currentLanguage)
     {
-        MainText.text = localizationComponent.GetText("Main");
-        DescriptionText.text = localizationComponent.GetText("ExplanationP1") + "\n" + localizationComponent.GetText("ExplanationP2");
+
     }
 }

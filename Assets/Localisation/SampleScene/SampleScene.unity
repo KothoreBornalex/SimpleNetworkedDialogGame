@@ -1159,6 +1159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TSVFile: {fileID: -6929369251454473874, guid: a7d7d63883c9fd441aaf25420a51c765, type: 3}
+  TMPList:
+  - {fileID: 531735874}
+  TextList: []
+  TextMeshList: []
+  TextsKeys:
+  - Key: TMP0
+    Value: CheckBox
 --- !u!114 &1185454568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,6 +1783,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TSVFile: {fileID: -5804233779199365086, guid: 46c0a43200e3951469adf3c299ea3db6, type: 3}
+  TMPList:
+  - {fileID: 813825847}
+  - {fileID: 860255015}
+  TextList: []
+  TextMeshList: []
+  TextsKeys:
+  - Key: TextMesh0
+    Value: 
+  - Key: TMP0
+    Value: Main
+  - Key: TMP1
+    Value: ExplanationP1   &&   ExplanationP2
 --- !u!114 &1692444228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,6 +2062,10 @@ PrefabInstance:
     - target: {fileID: 5403661684928080420, guid: 995399d717c1ea24f9a5053fd212652a, type: 3}
       propertyPath: m_Name
       value: LocalizationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749366838883944250, guid: 995399d717c1ea24f9a5053fd212652a, type: 3}
+      propertyPath: refreshLogs
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
