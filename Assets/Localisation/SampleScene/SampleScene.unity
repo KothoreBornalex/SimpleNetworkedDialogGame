@@ -1178,16 +1178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1456b50cc33898844a927cd3191a8cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GUITSVFile: {fileID: 0}
-  localizationComponent: {fileID: 1692444227}
-  Button1: {fileID: 1441289968}
   Button1Text: {fileID: 1641748314}
-  Button2: {fileID: 1716654518}
   Button2Text: {fileID: 132290082}
-  Button3: {fileID: 1066496713}
   Button3Text: {fileID: 1529582756}
   CheckBox: {fileID: 558844395}
-  CheckBoxText: {fileID: 531735874}
 --- !u!1 &1381023984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1671,6 @@ GameObject:
   - component: {fileID: 1692444224}
   - component: {fileID: 1692444223}
   - component: {fileID: 1692444227}
-  - component: {fileID: 1692444228}
   m_Layer: 5
   m_Name: Canvas[Localization]
   m_TagString: Untagged
@@ -1795,21 +1788,6 @@ MonoBehaviour:
     Value: Main
   - Key: TMP1
     Value: ExplanationP1   &&   ExplanationP2
---- !u!114 &1692444228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692444222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86425ee7b6c83e498d9e2612edc4272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localizationComponent: {fileID: 1692444227}
-  MainText: {fileID: 813825847}
-  DescriptionText: {fileID: 860255015}
 --- !u!1 &1716654516
 GameObject:
   m_ObjectHideFlags: 0
