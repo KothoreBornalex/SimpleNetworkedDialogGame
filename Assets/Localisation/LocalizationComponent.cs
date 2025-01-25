@@ -140,7 +140,11 @@ public class LocalizationComponent : MonoBehaviour
     public string GetText(string Key, bool keyIsLanguage = false)
     {
         if (cantBeUse) return ErrorCall();
-
+        if (Key == "")
+        {
+            Debug.LogError("Key was null", gameObject);
+            return "KEY WAS NULL";
+        }
         if (!MapOfTexts.ContainsKey(Key)) 
         { 
             Debug.LogError("No Associated key in '" + TSVFile.name + "' with key: " + Key, gameObject);
