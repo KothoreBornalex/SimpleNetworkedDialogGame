@@ -15,12 +15,14 @@ MonoBehaviour:
   nodeLinkDatas:
   - baseNodeGuid: 1b965c61-610d-47b4-bc33-f0eee1c94baa
     targetNodeGuid: 8aa853c8-4f94-43f0-8147-6cfd0424ba6c
-  - baseNodeGuid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
-    targetNodeGuid: 93e8ef9a-977c-436e-a89c-f6612a947e77
+  - baseNodeGuid: 6b141308-2dca-4b9a-8aa8-2cb6ab934d47
+    targetNodeGuid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
   - baseNodeGuid: 8aa853c8-4f94-43f0-8147-6cfd0424ba6c
     targetNodeGuid: bec8d61d-2cb4-4d60-bb3a-8e1f70f94a51
   - baseNodeGuid: 8aa853c8-4f94-43f0-8147-6cfd0424ba6c
     targetNodeGuid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
+  - baseNodeGuid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
+    targetNodeGuid: 93e8ef9a-977c-436e-a89c-f6612a947e77
   dialogueNodeDatas:
   - nodeguid: 8aa853c8-4f94-43f0-8147-6cfd0424ba6c
     position: {x: 756, y: 159}
@@ -38,7 +40,7 @@ MonoBehaviour:
     name: Name_Test01
     key: Key_Text01
   - nodeguid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
-    position: {x: 1091, y: 215}
+    position: {x: 1132, y: 213}
     dialogueNodePorts:
     - InputGuid: 93e8ef9a-977c-436e-a89c-f6612a947e77
       OutputGuid: 9511a85a-23dc-4b54-8f1f-810dd0917f84
@@ -49,15 +51,19 @@ MonoBehaviour:
     name: Name_Test02
     key: Key_Text02
   endNodeDatas:
-  - nodeguid: bec8d61d-2cb4-4d60-bb3a-8e1f70f94a51
-    position: {x: 1111, y: 118}
-    endNodeTypes: 0
   - nodeguid: 93e8ef9a-977c-436e-a89c-f6612a947e77
-    position: {x: 1418, y: 215}
-    endNodeTypes: 3
+    position: {x: 1459, y: 213}
+    endNodeTypes: 0
+  - nodeguid: bec8d61d-2cb4-4d60-bb3a-8e1f70f94a51
+    position: {x: 1103, y: 43}
+    endNodeTypes: 0
   startNodeDatas:
   - nodeguid: 1b965c61-610d-47b4-bc33-f0eee1c94baa
     position: {x: 608, y: 77}
-    node_id: ID
+    node_id: 
     mainStartNode: 1
+  - nodeguid: 6b141308-2dca-4b9a-8aa8-2cb6ab934d47
+    position: {x: 951, y: 436}
+    node_id: Delayed
+    mainStartNode: 0
   eventNodeDatas: []

@@ -24,6 +24,23 @@ public class DialogueTalk : DialogueGetData
         CheckNodeType(GetNextNode(dialogueContainer.startNodeDatas[0]));
         dialogueController.ShowDialogue(true);
     }
+    public void StartDialogue(string IDStart)
+    {
+        // look for a node that matches the id sent
+        foreach (var item in dialogueContainer.startNodeDatas)
+        {
+            Debug.Log("Node Start ids: " + item.node_id);
+            if(item.node_id == IDStart)
+            {
+                CheckNodeType(GetNextNode(item));
+                dialogueController.ShowDialogue(true);
+                return;
+            }
+        }
+        // if none found, take the first startNodeData
+        CheckNodeType(GetNextNode(dialogueContainer.startNodeDatas[0]));
+        dialogueController.ShowDialogue(true);
+    }
 
     private void CheckNodeType(BaseNodeData baseNodeData)
     {
