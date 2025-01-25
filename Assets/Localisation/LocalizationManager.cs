@@ -164,6 +164,10 @@ namespace LocalizationPackage
         /// <returns>Text in current game language.</returns>
         public string UniGetText(string TSVFileName, string Key)
         {
+            if(Key == null)
+            {
+                return "ERROR KEY IS NULL VALUE";
+            }
             foreach(LocalizationComponent comp in AllComponents)
             {
                 if (comp.GetTSVFileName == TSVFileName)
