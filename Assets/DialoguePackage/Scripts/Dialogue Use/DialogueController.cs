@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System;
+
+
+#if TranslationSystemImplemented
+using LocalizationPackage;
+#endif
 
 public class DialogueController : MonoBehaviour
 {
@@ -32,6 +38,43 @@ public class DialogueController : MonoBehaviour
     private List<Button> buttons = new List<Button>();
     private List<Text> buttonTexts = new List<Text>();
 
+
+
+    private string savedTextKey;
+    private string savedNameKey;
+    private string refTsv;
+    private List<string> savedButtonKeys= new List<string>();
+
+    public string RefTsv { get => refTsv; set => refTsv = value; }
+
+
+
+#if TranslationSystemImplemented
+    private void OnEnable()
+    {
+        LocalizationManager.OnRefresh += RefreshTexts;
+    }
+
+
+    private void OnDisable()
+    {
+        LocalizationManager.OnRefresh -= RefreshTexts;
+    }
+
+    private void RefreshTexts(SystemLanguage currentLanguage)
+    {
+        SetText(LocalizationManager.Instance.UniGetText(refTsv, savedNameKey), 
+            LocalizationManager.Instance.UniGetText(refTsv, savedTextKey));
+        RefreshButtons(savedButtonKeys);
+    }
+    public void RefreshButtons(List<string> _texts)
+    {
+        for (int i = 0; i < _texts.Count; i++)
+        {
+            buttonTexts[i].text = LocalizationManager.Instance.UniGetText(refTsv, _texts[i]);
+        }
+    }
+#endif
     private void Awake()
     {
         ShowDialogue(false);

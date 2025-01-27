@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc89dd0108f5df4f910a0a3b3496f90, type: 3}
+  m_Name: DialogueTestBase
+  m_EditorClassIdentifier: 
+  nodeLinkDatas:
+  - baseNodeGuid: fb01e3c2-92b2-47ce-a47a-bc4b002852ea
+    targetNodeGuid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+  - baseNodeGuid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+    targetNodeGuid: e251fe25-57ac-4876-b7da-72b767d0760f
+  - baseNodeGuid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+    targetNodeGuid: e4655173-567f-4bee-9f68-ad7e2fa9a071
+  - baseNodeGuid: e251fe25-57ac-4876-b7da-72b767d0760f
+    targetNodeGuid: e33ce1c9-38b1-4787-a790-4d91201def8a
+  - baseNodeGuid: e4655173-567f-4bee-9f68-ad7e2fa9a071
+    targetNodeGuid: 37df4c8f-c152-43cc-860d-e05161e1fa8f
+  dialogueNodeDatas:
+  - nodeguid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+    position: {x: 119, y: 129}
+    dialogueNodePorts:
+    - InputGuid: e251fe25-57ac-4876-b7da-72b767d0760f
+      OutputGuid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+      Key: 1A
+      ID_Port: 0
+    - InputGuid: e4655173-567f-4bee-9f68-ad7e2fa9a071
+      OutputGuid: b5e85aab-d918-4216-bd4f-ed1493b12d6c
+      Key: 1B
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
+    dialoguefaceimagetype: 0
+    name: NameA
+    key: TextA
+  - nodeguid: e251fe25-57ac-4876-b7da-72b767d0760f
+    position: {x: 483, y: 41}
+    dialogueNodePorts:
+    - InputGuid: e33ce1c9-38b1-4787-a790-4d91201def8a
+      OutputGuid: e251fe25-57ac-4876-b7da-72b767d0760f
+      Key: 2A
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: ca9cb1c101ef55c4ea7339a1a0f1f99f, type: 3}
+    dialoguefaceimagetype: 0
+    name: Name2A
+    key: Text2A
+  - nodeguid: e4655173-567f-4bee-9f68-ad7e2fa9a071
+    position: {x: 483, y: 224}
+    dialogueNodePorts:
+    - InputGuid: 37df4c8f-c152-43cc-860d-e05161e1fa8f
+      OutputGuid: e4655173-567f-4bee-9f68-ad7e2fa9a071
+      Key: 2B
+      ID_Port: 0
+    sprite: {fileID: 21300000, guid: a87ba417c3dde1346b95b4209eddfc4b, type: 3}
+    dialoguefaceimagetype: 1
+    name: Name2B
+    key: Text2B
+  endNodeDatas:
+  - nodeguid: e33ce1c9-38b1-4787-a790-4d91201def8a
+    position: {x: 814, y: 41}
+    endNodeTypes: 0
+  - nodeguid: 37df4c8f-c152-43cc-860d-e05161e1fa8f
+    position: {x: 788, y: 224}
+    endNodeTypes: 3
+  startNodeDatas:
+  - nodeguid: fb01e3c2-92b2-47ce-a47a-bc4b002852ea
+    position: {x: 2, y: 118}
+    node_id: ID_Start
+    mainStartNode: 1
+  eventNodeDatas: []

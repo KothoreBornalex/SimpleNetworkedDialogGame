@@ -23,7 +23,63 @@ How to access the graph and setup your dialogue:
 	- Each graph needs a beginning and an end node.
 
 ------------------------------------------------------
+References in scene:
+------------------------------------------------------
+Dialogue talk needs a reference to the Dialogue Container Scriptable Object and an object containing the Dialogue Controller Script
+Dialogue controller needs a reference to the origin of the UI (which it will turn on and off depending on the state of the dialogue) and all the references to the ui needed (texts, buttons, images etc etc)
+
+------------------------------------------------------
 Template Scene:
 ------------------------------------------------------
 
 
+We have a dialogue controller prefab that holds the DialogueController script, holding references to the required items in the scene
+
+A Speaker that acts as the entry point to the dialogue, they have an example script called DialogueTalkZone that simulates an interaction by the player to launch a dialogue
+DialogueTalk is the main script that handles the flow of dialogue
+
+The script Dialogue Talk may contain a reference to a Tsv file, allowing use alongside the localisation package made by Titouan, if both packages are present at the same time, the behavior of the DialogueGraph changes slightly, changing the values from being set directly by the nodes to searching for a translation in the referenced tsv document.
+
+------------------------------------------------------
+Nodes:
+------------------------------------------------------
+
+Start node: 
+	Entry Point
+	Only important value is the id, when using the StartDialogue in your scripts, you want to send the id of your start 	node if there's multiple present, otherwise it's going to select the first one, this allows multiple starting points 	to coexist in a single dialogue graph
+
+End node:
+	End Point
+	Has different types of ending behaviors
+	Repeat (repeat the same node)
+	Go back (go back one node)
+	Return Start (return to the first node of the graph)
+	End (End dialogue)
+
+Event node:
+	not implemented yet
+
+Dialogue node:
+	Add choice button:
+		Multiple choices for the buttons at the button of the screen, allows for branching dialogue
+	Picture Input:
+		Input to set the sprite/artwork that will popup alongside your dialogue
+	Dropdown menu:
+		If the picture selected is to be set to the left icon or right icon (defined in the controller)
+	Name:
+		Name/Key for the Name textbox
+	Key text:
+		Text/Key for the Text textbox
+
+------------------------------------------------------
+Important !:
+------------------------------------------------------
+If you used the localisation package and decide to go back to only using the dialogue graph package:
+go in your project settings, 
+Player, 
+Settings for Windows Mac Linux, 
+Other Settings, 
+Scripting Define Symbols
+
+And delete TranslationSystemImplemented
+otherwise this package will expect the other package to be present and it's behavior will change
