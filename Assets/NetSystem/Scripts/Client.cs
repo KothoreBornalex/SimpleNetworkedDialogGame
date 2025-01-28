@@ -42,7 +42,8 @@ public class Client : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }else if (instance != this)
+        }
+        else if (instance != this)
         {
             Debug.Log("Instance already Exist!");
             Destroy(this);
@@ -88,11 +89,7 @@ public class Client : MonoBehaviour
 
         public void Connect()
         {
-            socket = new TcpClient
-            {
-                ReceiveBufferSize = dataBufferSize,
-                SendBufferSize = dataBufferSize
-            };
+            socket = new TcpClient { ReceiveBufferSize = dataBufferSize, SendBufferSize = dataBufferSize };
 
             receiveBuffer = new byte[dataBufferSize];
             socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
